@@ -1,5 +1,6 @@
 ---
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 const { titre } = Astro.props;
 ---
@@ -11,10 +12,11 @@ const { titre } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <title> {titre} </title>
     </head>
-    <body>
+    <body class="bg-purple-400 text-white text-xl flex flex-col justify-between">
         <Header/>
-        <main>
+        <main class="p-5">
             <slot />
         </main>
+        <Footer />
     </body>
 </html>

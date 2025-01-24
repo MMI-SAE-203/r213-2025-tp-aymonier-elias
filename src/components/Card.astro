@@ -1,0 +1,15 @@
+---
+const {nomMaison, prix, surface, favori, adresse} = Astro.props;
+
+import Fav from "../assets/mdi_heart.svg";
+import NotFav from "../assets/mdi_heart-outline.svg";
+---
+
+<ul class="bg-white text-black flex flex-col gap-3 rounded-lg p-5">
+    <li>{nomMaison}</li>
+    <li>{prix}€</li>
+    <li>{surface}m2</li>
+    <li>{adresse}</li>
+    {favori && <Fav />}
+    {!favori && <NotFav />}
+</ul>

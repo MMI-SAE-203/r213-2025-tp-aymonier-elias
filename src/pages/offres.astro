@@ -40,15 +40,15 @@ const offres = [
 ---
 
 <Base titre="Offres">
-	<h1>Offres</h1>
+	<h1 class="text-4xl font-bold mb-10">Offres</h1>
 
-	<div x-data="{showFavoris: false}">
-		<button @click="showFavoris = !showFavoris">
+	<div x-data="{showFavoris: false}" class="space-y-5">
+		<button @click="showFavoris = !showFavoris" class="bg-red-400 px-5 py-2 rounded-2xl font-bold">
 			<span x-show="!showFavoris">Afficher les favoris</span>
 			<span x-show="showFavoris">Afficher tout</span>
 		</button>
 
-		<div x-show="!showFavoris" class="flex flex-col gap-5">
+		<div x-show="!showFavoris" class="grid grid-cols-3 gap-7">
 			{
 				offres.map((offre) => (
 					<ul>
@@ -57,7 +57,7 @@ const offres = [
 				))
 			}
 		</div>
-		<div x-show="showFavoris" class="flex flex-col gap-5">
+		<div x-show="showFavoris" class="grid grid-cols-3 gap-7">
 			{
 				offres.map((offre) => (
 					<ul>

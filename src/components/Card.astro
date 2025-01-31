@@ -1,5 +1,5 @@
 ---
-const {nomMaison, prix, surface, favori, adresse, nbSdb, nbChambres} = Astro.props;
+const {nomMaison, prix, surface, favori, adresse, nbSdb, nbChambres, imgURL} = Astro.props;
 
 import Fav from "../assets/mdi_heart.svg";
 import NotFav from "../assets/mdi_heart-outline.svg";
@@ -7,7 +7,8 @@ import NotFav from "../assets/mdi_heart-outline.svg";
 
 <li class="bg-white text-black flex flex-col gap-3 rounded-lg p-5">
     <p class="text-2xl font-bold mb-4">{nomMaison}</p>
-    <div class="flex flex-wrap justify-between">
+    <img src={imgURL} alt="une image au pif" class="rounded-lg">
+    <!-- <div class="flex flex-wrap justify-between">
         <p>{prix}€</p>
         <p>{surface}m2</p>
         <p>{nbSdb} Salle de bain</p>
@@ -16,5 +17,5 @@ import NotFav from "../assets/mdi_heart-outline.svg";
     <p class="text-sm">{adresse}</p>
     <button class="hover:scale-125 w-2">
         {favori ? <Fav />: <NotFav />}
-    </button>
+    </button> -->
 </li>

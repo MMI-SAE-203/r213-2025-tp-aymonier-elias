@@ -15,7 +15,7 @@ const offres = await allMaison();
 			<span x-show="showFavoris">Afficher tout</span>
 		</button>
 
-		<div x-show="!showFavoris" class="grid grid-cols-3 gap-7">
+		<div x-show="!showFavoris" x-transition="" class="grid grid-cols-3 gap-7">
 			{
 				offres.map((offre) => (
 					<ul>
@@ -24,7 +24,7 @@ const offres = await allMaison();
 				))
 			}
 		</div>
-		<div x-show="showFavoris" class="grid grid-cols-3 gap-7">
+		<div x-show="showFavoris" x-transition="" class="grid grid-cols-3 gap-7">
 			{
 				offres.map((offre) => (
 					<ul>

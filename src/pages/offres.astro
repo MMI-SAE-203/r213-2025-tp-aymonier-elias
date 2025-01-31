@@ -19,14 +19,14 @@ const offres = await allMaison();
 			<span x-show="grid">Liste</span>
 		</button>
 
-		<div x-show="!showFavoris && grid" x-transition class="grid grid-cols-3 gap-7">
+		<div x-show="!showFavoris && grid" x-transition class="grid grid-cols-2 lg:grid-cols-3 gap-7">
 			{
 				offres.map((offre) => (
 					<Card {...offre}/>
 				))
 			}
 		</div>
-		<div x-show="showFavoris && grid" x-transition class="grid grid-cols-3 gap-7">
+		<div x-show="showFavoris && grid" x-transition class="grid grid-cols-2 lg:grid-cols-3 gap-7">
 			{
 				offres.map((offre) => (
 					offre.favori && <Card {...offre}/>
@@ -34,14 +34,14 @@ const offres = await allMaison();
 			}
 		</div>
 
-		<div x-show="!showFavoris && !grid" x-transition class="flex flex-col shrink gap-7 w-1/3">
+		<div x-show="!showFavoris && !grid" x-transition class="flex flex-col shrink gap-7 w-1/2 lg:w-1/3">
 			{
 				offres.map((offre) => (
 					<Card {...offre}/>
 				))
 			}
 		</div>
-		<div x-show="showFavoris && !grid" x-transition class="flex flex-col shrink gap-7 w-1/3">
+		<div x-show="showFavoris && !grid" x-transition class="flex flex-col shrink gap-7 w-1/2 lg:w-1/3">
 			{
 				offres.map((offre) => (
 					offre.favori && <Card {...offre}/>

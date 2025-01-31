@@ -15,7 +15,6 @@ import NotFav from "../assets/mdi_heart-outline.svg";
     </div>
     <p class="text-sm">{adresse}</p>
     <button class="hover:scale-125 w-2">
-        {favori && <Fav />}
-        {!favori && <NotFav />}
+        {favori ? <Fav />: <NotFav />}
     </button>
 </li>

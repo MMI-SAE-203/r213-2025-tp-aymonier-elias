@@ -14,32 +14,13 @@ export async function allMaison() {
         return [];
     }
 }
-// export async function oneId(id) {
-//     const records = await pb.collection('Maison').getFullList({filter: `id = '${id}'`});
-//     return records;
-// }
 
-// export async function allMaisonsFavori() {
-//     const records = await pb.collection('Maison').getFullList({filter: 'favori = true'});
-//     return records;
-// }
-
-// export async function allMaisonsSorted() {
-//     const records = await pb.collection('Maison').getFullList({sort: 'prix'});
-//     return records;
-// }
-
-// export async function bySurface(surface) {
-//     const records = await pb.collection('Maison').getFullList({filter: `surface >= ${surface}`});
-//     return records;
-// }
-
-// export async function surfaceORprice(surface, prix) {
-//     const records = await pb.collection('Maison').getFullList({filter: `surface >= ${surface} || prix <= ${prix}`});
-//     return records;
-// }
-
-// export async function parAgent(agent) {
-//     const records = await pb.collection('Agent').getFullList({filter: `id = '${agent}'`});
-//     return records;
-// }
+export async function getOffre(id) {
+    try {
+        let data = await pb.collection('maison').getOne(id);
+        data.imgURL = pb.files.getURL(data, data.images);
+        return data;
+    } catch (e) {
+        console.error(e)
+    }
+}

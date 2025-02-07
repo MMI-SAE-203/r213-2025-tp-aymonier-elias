@@ -1,5 +1,15 @@
 ---
-const {nomMaison, prix, surface, favori, adresse, nbSdb, nbChambres, imgURL, id} = Astro.props;
+const {
+    nomMaison,
+    prix,
+    surface,
+    favori,
+    adresse,
+    nbSdb,
+    nbChambres,
+    imgURL,
+    id,
+} = Astro.props;
 
 import Fav from "../assets/mdi_heart.svg";
 import NotFav from "../assets/mdi_heart-outline.svg";
@@ -8,19 +18,18 @@ import NotFav from "../assets/mdi_heart-outline.svg";
 <div class="bg-white text-black flex-auto flex-col gap-3 rounded-lg p-5">
     <a href={`/offres/${id}`}>
         <p class="text-2xl font-bold mb-4">{nomMaison}</p>
-        <img src={imgURL} alt="une image au pif" class="rounded-lg">
+        <img src={imgURL} alt="une image au pif" class="rounded-lg" />
+        <div class="flex flex-wrap justify-between">
+            <p>{prix}€</p>
+            <p>{surface}m2</p>
+            <p>{nbSdb} Salle de bain</p>
+            <p>{nbChambres} Chambres</p>
+        </div>
     </a>
 
-    
-
-    <!-- <div class="flex flex-wrap justify-between">
-        <p>{prix}€</p>
-        <p>{surface}m2</p>
-        <p>{nbSdb} Salle de bain</p>
-        <p>{nbChambres} Chambres</p>
-    </div>
     <p class="text-sm">{adresse}</p>
     <button class="hover:scale-125 w-2">
-        {favori ? <Fav />: <NotFav />}
-    </button> -->
-<div/>
+        {favori ? <Fav /> : <NotFav />}
+    </button>
+    <div></div>
+</div>

@@ -1,0 +1,21 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Card from "../../../components/Card.astro";
+import { bySurface } from "../../../js/backend.mjs";
+
+const { surface } = Astro.params;
+const offres = await bySurface(surface);
+if (!offres) {
+    return Astro.redirect("/offres");
+}
+---
+
+<Base>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-7">
+        {
+            offres.map((offre) => (
+                <Card {...offre} />
+            ))
+        }
+    </div>
+</Base>

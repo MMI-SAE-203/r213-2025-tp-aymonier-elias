@@ -18,6 +18,7 @@ const offres = await allMaison();
 			<span x-show="!grid">Grille</span>
 			<span x-show="grid">Liste</span>
 		</button>
+		<a href={`/offres/surface/${40}`} class="bg-red-400 px-5 py-2 rounded-2xl font-bold">Sup a 40m<sup>2</sup></a>
 
 		<div x-show="!showFavoris" x-transition :class="grid ? 'grid grid-cols-2 lg:grid-cols-3 gap-7' : 'flex flex-col shrink gap-7 w-1/2 lg:w-1/3'">
 			{

@@ -1,0 +1,31 @@
+---
+import Card from "../../components/Card.astro";
+import Base from "../../layouts/Base.astro";
+
+import { getOffreByAgent } from "../../js/backend.mjs";
+import { getAgent } from "../../js/backend.mjs";
+const { id } = Astro.params;
+const maisonByAgent = await getOffreByAgent(id);
+const Agent = await getAgent(id);
+if (!Agent) {
+    return Astro.redirect("/agent");
+}
+---
+
+<Base>
+    <div class="flex flex-col gap-8">
+        <div class="bg-white text-black flex-auto flex-col gap-3 rounded-lg p-5 w-1/4">
+            <a href={`/agent/${id}`}>
+                <p class="font-bold text-2xl">{Agent.Prenom} {Agent.Nom}</p>
+                <p class="text-gray-500">{Agent.email}</p>
+            </a>
+        </div>
+        <div class="flex gap-5">
+            {
+                maisonByAgent.map((maison) => (
+                    <Card {...maison} />
+                ))
+            }
+        </div>
+    </div>
+</Base>

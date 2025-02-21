@@ -1,0 +1,17 @@
+---
+import Base from "../../layouts/Base.astro";
+import Card from "../../components/Card_Agent.astro";
+
+import { allAgent } from "../../js/backend.mjs";
+const agents = await allAgent();
+---
+
+<Base>
+    <div class="flex gap-5 flex-wrap">
+        {
+            agents.map((agent) => (
+                <Card {...agent} />
+            ))
+        }
+    </div>
+</Base>
